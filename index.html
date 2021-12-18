@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--=========== START OF HEAD ========-->
+    <head>
+        <title>C21415142</title>
+      
+
+        <meta charset="UTF-16">
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <link href="Assets\CSS\HomeCSS.CSS" rel="stylesheet" type="text/css">     
+        <script type="text/javascript" src="Assets/JS/HomeJS.js"></script>
+    </head>
+    <!--=========== END OF HEAD ========-->
+
+
+
+    <!--=========== START OF BODY ========-->
+    <body>
+
+        <div id="header">
+            <script>
+                window.onload = document.getElementById("header").style.opacity = 0;
+                window.onscroll = function() {ShowHeader();};
+            </script>
+
+            <h1 id="Header_heading"><a href="index.html">THE EUROPEAN NIGHT SCENE</a></h1>
+
+            <div id="Header_Buttons_container">
+                
+                <button id="Header_Button"  type="button" onclick=" Show_Contact() ">CONTACT
+                
+                <button id="Header_Button" type="button" onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)">REPORT
+                
+                <!--<button id="Header_Button3" type="button" onclick=" Switch_Page('REPORT_PARENT_DIV', 'EUROPEAN_NIGHT_SCENE_PARENT_DIV', true)">HOME-->
+
+            </div>
+            
+            
+        </div>
+
+        <div id="CONTACT_PARENT_DIV">
+            <div id="Close">
+                <button id="close_X" type="button" onclick="Close_Contact()">X</button>
+            </div>
+            <h1>
+                CONTACT <hr>
+            </h1>
+
+            <p>
+                Due to no SMTP server being establish, we are unfortunatley unable to receieve your message. <br> 
+                We will try fix this the moment we have enough capital to establish a proper back-end!
+            </p>
+
+            <form name="Contact_Form" onsubmit="validate_form(); return false;">
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="" placeholder="Bob Dylan" ><br>
+
+                <label for="type">Whats the nature of your message?: </label>
+
+                <select id="type" name="type" value="">
+                    <option value=" " selected disabled hidden>Choose here</option>
+                    <option value="complaint">I wish to complain</option>
+                    <option value="question">I wish to ask something</option>
+                    <option value="recommendation">I wish to recommend something</option>
+                    <option value="add_NC">I wish to add a nightclub to the list</option>
+                    <option value="other_message">Other...</option>
+                </select><br>
+
+                <div id="Photos">
+                    
+                </div>
+
+                <p>I am a...</p>
+
+                    <input type="radio" id="student" name="occupation" value="student">
+                    <label for="student">Student</label>
+
+                    <input type="radio" id="teach" name="occupation" value="teach">
+                    <label for="teach">Teacher</label>
+
+                    <input type="radio" id="other_occupation" name="occupation" value="other_occupation">
+                    <label for="other_occupation">Other...</label>
+                    <br><br>  
+
+                <hr>
+
+                <input type="checkbox" id="not_a_spammer" name="not_a_spammer" value="not_a_spammer" >
+                <label for="not_a_spammer"> I swear I am not spamming the Contact form in an attempt 
+                                            to mess with the developer and his inbox... if he gets an SMTP server
+                </label><hr>
+                <br>
+                
+                <div id="Extra_text_area">
+                    <label for="message">Please write down your message below: </label><br>
+                    <textarea style="width: 80%; height: 80px; resize: none;" id="message" name="message" rows="8" cols="100" placeholder="Please type here... and preferably just here. Like please don't break the site and type somewhere else that doesn't even have a text-area."></textarea>
+                    <br><br><hr>
+                </div>
+                <input id="submit" type="submit" value="Submit">
+
+            </form>
+        </div>
+
+        <div id="EUROPEAN_NIGHT_SCENE_PARENT_DIV">
+
+            <div class="Home_Video_Container">
+                <video autoplay loop muted id="Home_Video">
+                    <source src="Assets\Videos\DJ_HOME.mp4"  type="video/mp4">
+                </video>
+
+                <h1 id="Video_Title">    
+                    WELCOME  
+                </h1>
+
+                <script>
+                    window.onload = change_greeting(1500);
+                    window.onload = ShowHeader();
+                </script>
+            </div>
+
+            
+            <div id="Text_segment" >
+                                
+                <div id="Mini-Desciption-Container">
+                    <hr>
+
+                    <h1 id="Mini-title">A NOTE FROM THE DEVELOPER: </h1>
+                    
+                    <p>
+                        Although there are many clubs and scenes throughout the world, I just wanted to bring attention to a few of the best ones in Europe.<br>
+                        This list is in NO WAY finished or even nearing completion, but I think it's a good start! With Covid-19 wreaking havoc throughout the world,
+                        I thought it'd be nice to just highlight a few locations which could be worth a visit if we ever get the chance to go on a weekend away!<br>
+
+                        Just Note however, alot of the spots listed here may be temporarily closed due to covid. The status keeps changing so quickly that updating this website everytime
+                        one of the numerous EU countries changes its policy on nightclubs would be practically impossible!<br>
+                        If anywhere I have listed is no longer open, please contact me either using the <a onclick=" Show_Contact() " style="cursor: pointer;">contact form</a> or find me on <a href="#footer_text_box">Social Media</a>
+                        So please do enjoy the content I have made for you, and hopefully we can all visit these places soon!
+
+                    </p>
+                    <hr>
+                </div>
+            </div>
+
+
+
+            <div id="NC-Map-Media-Parent-Container">
+                <div class="nightclub_location_container">
+                    <!--    Night Club map div  -->
+                    <div id="Map_Container">
+
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPpvAJ_qAI2QLyK134TMD2SBf8Ply1Nz8&callback=initMap&v=weekly" async></script>
+
+                    </div>
+
+                    <div id="Nightclub_Description">
+
+                        <div id="Nightclub_Description_Title">
+                            PLEASE REMEMBER
+                        </div>
+                        
+                        <div id="Nightclub_Description_Text">
+                            As mentioned previously, COVID-19 is still at large! Although these establishments should be open, it's very likely that a particular space may need to close down temporarily!<br>
+                            With the outbreak of the omnicron variant, this seems to be much more likely...<br>
+                            <hr style="margin-top: 5vh; margin-bottom: 5vh;">
+
+                            So if you're travelling for this christmas or summer, please keep in mind to check the news of wherever you're visiting!<br>
+                            Be safe and here's hoping we all have an awesome well-deserved holiday!
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="Pics_and_vids_container">
+                    <div id="Pics_and_vids">
+                        <div class="Media_item">
+                            
+                        </div>
+
+                        <div class="Media_item">
+                            
+                        </div>
+
+                        <div class="Media_item">
+                            
+                        </div>
+
+                        <div class="Media_item">
+                            
+                        </div>
+                        
+                        <div class="Media_item">
+                            
+                        </div>
+                        
+                        <div class="Media_item">
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+
+        <div id="REPORT_PARENT_DIV">
+           
+            <div id="Report_Heading">
+
+                <h1>   
+                    THE REPORT
+                </h1>
+            </div>
+
+
+            <div id="Nav_Menu">
+                <script>
+                    //window.onscroll = function() {Sticky_nav_menu() };
+                </script>
+                <ol>
+                    <li><a href="#Prob_desc " onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Problem Description </a></li>
+                    <li><a href="#Research "  onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Research </a></li>
+                    <li><a href="#Tech "      onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Tech-Architecture </a></li>
+                    <li><a href="#JS "        onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Javascript </a></li>
+                    <li><a href="#LoFi "      onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Lo-Fi Prototype </a></li>
+                    <li><a href="#Dev_Plan "  onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Dev Plan </a></li>
+                    <li><a href="#Test_Plan " onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Testing Plan </a></li>
+                    <li><a href="#Site_Eval " onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Site Evaluation </a></li>
+                    <li><a href="#Logs "      onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Weekly Logs </a></li>
+                </ol>
+            </div>
+            <div id="Report_Content">
+                
+                
+                <section id="Prob_desc">
+                    <h1>
+                        <hr>1.  Problem Description<hr>
+                    </h1>
+                    
+
+                    <h2>
+                        What's the site about?
+                    </h2>
+
+                    <p>
+                        When I went into the Web-Development lecture where our assignment was announced, 
+                        I knew almost immediately what I wanted to do it on! For this website, I wanted 
+                        to try achieve an edgier  and more Cyberpunk aesthetic. 
+                        <br><br>
+                        My brother showed me some
+                        old pictures of various clubs he went to while in France. It was here that I realised 
+                        that Nightclubs fitted this aesthetic perfectly! And so, I decided to do my website on them.
+                        <br><br>
+                    </p>
+
+                        
+                    <h2>
+                        Who will use it?
+                    </h2>
+
+                    <p>
+                        I imagine that the main users who will use this site will be younger people, mostly students
+                        and graduates, all looking for a fun holiday away visiting the best nightclubs that Europe 
+                        has to offer, which isn’t difficult as Europe is home to so many establishments that including 
+                        them all would be nearly impossible in the time that I had! 
+                        <br><br>
+                    </p>
+                    
+
+                    <h2>
+                        Why was the site made?
+                    </h2>
+                    
+                    <p>
+                        A huge reason why I like the idea of this site is because during the first stages of 
+                        the Covid-19 epidemic, mental health became a huge problem for so many people <i>as 
+                        seen in the reports provided below</i>, from kids not being able to see their best 
+                        friends, families being split apart, abusive families being stuck together, and 
+                        too many other causes. 
+                        <br><br>
+
+                        We all remember the first time we had a social outing 
+                        after restrictions eased, and how nice and liberating it was to see your best friends 
+                        again and be coming out of isolation. I like the idea of this site because hopefully 
+                        it will help the mental wellbeing of someone after a year of mental anguish. 
+                        <br><br>
+                        Because if even one person were to go through the integrated Map, and get a boost of excitement 
+                        and happiness looking at the accompanying pictures and videos of a fun looking night 
+                        out nearby, seeing where they could plan a trip away to, that would be more than enough 
+                        for me. These past few years have been so difficult, we all deserve that boost of happiness
+                        <br><br>
+                        That's why I made this site...<br>
+                        That, and I really liked the aesthetic that I could have gone for.
+                        <br><br>
+                    </p>
+
+                    <div id="iframe_Box">
+                        <iframe width="95%" height="100%" src="https://www.kff.org/coronavirus-covid-19/issue-brief/the-implications-of-covid-19-for-mental-health-and-substance-use/"></iframe>
+                    </div>
+
+                    <div id="iframe_Box">
+                        <iframe width="95%" height="100%" src="https://www.mentalhealth.org.uk/sites/default/files/COVID%20Adolescent%20W1%20Summary%20Presentation_PDF.pdf"></iframe>
+                    </div>
+
+                </section>
+
+
+                <section id="Research">
+                    <h1>
+                        <hr>2. Research<hr>
+                    </h1>
+                    
+
+                    <h2>
+                        Similar Websites?
+                    </h2>
+
+                    <p>
+                        While looking up reviews for the various clubs throughout Europe, I came 
+                        across a site called <a href="https://www.nightflow.com/">Nightflow</a>.
+                        <br><br>
+                        It seemed to share much of the same purpose as my own site. After all, both sites
+                        served the purpose of showing the location and review of the top nightclubs around Europe.
+                        Where <a href="https://www.nightflow.com/">Nightflow</a> seemed to do a better job than 
+                        my site, was the selection of clubs it had available to see and review, which weren't specific to just Europe.
+                        <br><br> 
+                        Where I believe <a href="index.html">my site</a> excels however is the ease of navigation <i>(especially with the google 
+                        maps integration)</i>, the better UI and UX design, and lack of predatory ads, which all 
+                        ultimately made their site hard to use.
+                        <br><br>
+                        Other sites to mention were journals that posted multiple reviews on various clubs. Which I then incorporated into the final site.                    
+                        <br><br>
+                    </p>
+
+                        
+                    <h2>
+                        Site layout and content?
+                    </h2>
+
+                    <p>
+                        The explanatory diagram can be found <a href="#LoFi">here</a>
+                        <br><br>
+                    
+                        When making the layout for the site and it's pages, I kept in mind the DOM and Box-model of HTML pages.
+                        I never used in-line boxes to this extent before so I thought it'd be a good learning oppurtunity to do so.
+                        I thought that it would be a nice idea to have the different pages appear within the same .HTML file, 
+                        rather than having a seperate .HTML file for each page.
+                        <br><br>
+                        To do this, I treated every "page" as one big container, using the <code>&lt;div></code> dividers.
+                        Every divider which is supposed to act as a "Page" is set to having a fixed position, no display method, 
+                        and no visibility just to be sure that it doesn't get displayed. <br>
+                        These settings are swapped around once different buttons are pressed via javascript.
+                        <br><br>
+                        Each "page" has the same footer and header, as these aren't included in the page containers.
+                        I did this so that the pages would all react the same way with the header and footer, and both elements 
+                        would stay the same.
+                        <br><br>
+                        If every page were to be loaded, all would still get displayed correctly, one after the other, as every page div would be 
+                        display right after the previous one, resulting in one long web page.  
+                        
+                    </p>
+                    
+
+                    <h2>
+                        3. websites as part of my research?
+                    </h2>
+                    
+                    <ol>
+                        <li>
+                            Without a doubt, <a href="https://www.w3schools.com/">W3 Schools</a> was instrumental to helping me.
+                            I had never even touched javascript before starting this project. I had done smaller projects in Python, C, CSS, but never javascript.
+                            I learned a lot about the language and some of its quirks, all from <a href="https://www.w3schools.com/">W3 Schools</a> and their
+                            amazing tutorials. 
+                            <br>
+                            I <b>never</b> copy and pasted code from their examples, but they were so easy to follow along with
+                            and they really made my research into the language quite enjoyable and easy!
+                        </li>
+
+                        <li>
+                            Another site I used for my research was <a href="https://www.cyberpunk.net/ie/en/">CyberPunk.net</a> which acted as 
+                            a reference and guide for how to style my website. I absolutely love the aesthic and look of CD Projekts Red's <i>(the parent company)</i>
+                            site and it was exactly the look that I wanted to achieve.
+                            <br>
+                            Using Inspect element, I was able to learn how they styled some of their site's elements, as well as their fonts and site-assets, which I 
+                            took inspiration from, and/or incorporated into my site.
+                        </li>
+
+                        <li>
+                            The biggest site I used for my research and inspiration, was surprisingly <a href="https://www.tennisireland.ie/">Tennis Ireland</a>
+                            and their <a href="https://www.tennisireland.ie/clubs/club-locator/">Club-Locater</a>.
+                            <br>
+                            My mum, after hearing that I was working on a website that involved the locations of clubs around Europe, showed me
+                            her organisation's website and their included <a href="https://www.tennisireland.ie/clubs/club-locator/">Club-Locater</a>.
+                            This was instrumental in helping me! As previously, before starting work on this site, I had no idea how the user would both see all the mentioned
+                            clubs, and not be bombarded with information at once.
+                            <br><br>
+                            From this, I inspected the site and realised that Google maps had an API for just this very thing!
+                            <br>
+                            I popped onto Google and looked up whatever documentation I could find, eventually leading me 
+                            <a href="https://developers.google.com/maps/documentation/javascript/overview">here!</a>
+
+                        </li>
+                    </ol>
+                </section>
+
+
+                <section id="Tech">
+                    <h1>
+                        <hr>3. Technology Selection and Site Architecture <hr>
+                    </h1>
+                    
+
+                    <h2>
+                        1. Version of HTML/CSS to be used 
+                    </h2>
+
+                    <p>
+                        For This site, I am using HTML5 and CSS. I tried to figure out what version my CSS should be but
+                        <a href="http://www.grauw.nl/articles/css-faq.php#versioning">this article</a> explained why that wasn't necesesary.
+                        <br><br>
+                        <cite>
+                            "There is only a single version of CSS. The numbers in CSS1, CSS 2.1 and CSS3 refer to the level of the 
+                            specification, that is, the progress. You can call it milestones, or deliverables as well.""
+                        </cite>
+
+                        <br><br>
+                    </p>
+
+                        
+                    <h2>
+                        2. Plan for site layout and responsive design
+                    </h2>
+
+                    <p>
+                        The explanatory diagram can be found <a href="#LoFi">here</a>
+                        <br><br>
+                        When making the site, I had the idea of responsive design in mind since the very start.
+                        The only elements which have hard-coded elements are the <code>&lt;iFrame></code>, <code>font-size:</code>, and <code>min-height:</code>
+                        elements in CSS.
+                        Most of the other elements are sized based off of the Viewport Height and Widths, refered to as <code>VH</code> and <code>VW</code>
+                        respectively.
+                        <br><br>
+                        Everytime I added something new into the site, I would always resize the window and see how it fit in. 
+                        This is partially why I made extensive use of the <code>@media only screen and (max-width:</code> attribute in CSS,
+                        To make sure that my site would fit on any screen!
+                        <br><br>
+                    </p>
+                    
+
+                    <h2>
+                        3. How do we expect users to view the site?
+                    </h2>
+                    
+                    <p>
+                        After extensive testing, I found that the site works fine with any screen bigger than <b>~430px wide</b> and <b>~330px high</b>.
+                        I unfortunatley do not have access to a screen bigger than <b>1080p</b> so if I were to do this site again, I would perhaps
+                        try testing it occasionally on the TUD CQ TV's as they are of a 4K resolution.
+                        <br><br>
+                    </p>
+
+                    <h2>
+                        4. Cross Browser Compatibility strategy?
+                    </h2>
+                    
+                    <p>
+                        I made sure to not use any of the <code>webkit</code> or <code>moz</code> tags and their 
+                        elements in CSS as I heard many people say that using these in CSS caused them issues in 
+                        different browsers. I didn't test them as I didn't want to give myself the headache of trying 
+                        to get them to work. I have never used them before and didn't see a need for them, as the functionality 
+                        that comes with regular CSS was more than enough for me.
+                        <br><br>
+                        To make sure that the site worked on the more popular browsers, I simply opened the site and made sure
+                        that every aspect worked in:
+                        <ul>
+                            <li id="success"> Chrome </li>
+                            <li id="unknown"> FireFox: <i>(The Little Nav menu on the left of the report page is hidden, everything else runs fine)</i></li>
+                            <li id="success"> Edge </li>
+                            <li id="failure"> Internet Explorer: <i>(Wouldn't load JS or import customs fonts)</i></li>
+                            <li id="success"> Opera </li>
+                            <li id="unknown"> Safari: <i>(I have absolutely no access to an Apple Device)</i></li>
+                            <li id="success"> Chromium </li>
+                        </ul>
+                    </p>
+
+                </section>
+
+
+                <section id="JS">
+                    <h1>
+                        <hr>4. The JavaScript <hr>
+                    </h1>
+                
+                    <p>
+                        When implementing the JS, I wanted all of the functions to be completely independant of eachother, having just
+                        one Global variable <code>toggle_header</code>. 
+
+                        <br><br>
+                        The functions can as follows: <br>
+                    </p>
+                    <h2 id="success">initMap()</h2> 
+                    
+                    <ul>
+                        <li>
+                            This function is the biggest function in the entire Javascript file, coming in at over 450 lines of code.<br>
+                            However, most of this size can be attributed to the <b>NightClub titles</b>, Their corresponding <b>media objects</b> 
+                            <i>(such as YouTube links, videos, and pictures)</i>, as well as the <b>brief descriptions</b> that accompany each one. 
+                            Due to a lack of time however, I felt that although it would’ve been wise to move them outside of the 
+                            functions, and be used instead as a <b>global variable</b> <i>(a variable available to all functions)</i>, I didn’t 
+                            want to accidentally break something and figure out where I went wrong, as time was short.
+                        </li>
+
+                        <li>
+                            This function has the main responsibility to initialise the Google maps API, set up all of the markers 
+                            that you see on the map, and change various HTML elements when clicked.
+                        </li>
+                        
+                        <li>
+                            Each marker on the map that you see is a part of a class called <code>NewMarker</code>. It takes in a Longitude, a latitude, and an index.
+                            It starts by making a marker on the map using the Longitude and Latitude arguments when constructed. When it's being
+                            constructed, it adds a listener. This listener has the sole job of listening to see if it's been clicked or not. If 
+                            a marker is clicked, the listener fires off an event which changes the Nightclub describtion title, as well as the Description
+                            that goes underneath it.
+                            <br>
+                            The index arguement is there so that JS knows which title to get, which description, and what media objects to display.
+                            <br>
+                            After the class has been defined, each Nightclub will be an instance of the <code>NewMarker</code> class.
+                            Precise co-ordinaties of the Longitude and Latitude can be found with Google Maps, when you <kbd>right-click</kbd> a location.
+                        </li>
+
+                        <li>
+                            Instructions on how the map itself worked and could be configured was gathered from <a href="https://developers.google.com/maps/documentation/javascript/overview">
+                            Google Maps JS API</a>. It was here that I found out about their darkmode, which I then edited, changing many of the colours around
+                            to better fit the style and aesthetic that I wanted for this site.
+                        </li>
+                    </ul>
+                    
+                    <h2 id="success">Switch_Page()</h2> 
+                    <ul>
+                        <li>
+                            This function is responsible for changing the div's around. From the Home page to the report page, and vice versa. Unfortunatley due 
+                            to time constraints, I couldn't make the function work properly so now it only goes from the home page to the report page and that's
+                            it...
+                        </li>
+                        <li>
+                            it simply takes in 2 arguments, the div it wishes to hide, and the one it wants to show. The div to hide plays a fading out animation,
+                            before having their display set to none, their visibility set to invisible, and position to fixed. I know now that perhaps 
+                            <code>display: none</code> should have sufficed, <cite>but if it ain't broke, dont fix it...</cite>
+                        </li>
+                        <li>
+                            The <code>Set_On_Home_to_True</code> argument was originally meant to be for the buttons, and making setting the display of them visible.
+                            Unfortunatley, as mentioned before, time constraints didn't allow this to be possible. Now, it serves the purpose of setting 
+                            <code>toggle_header</code> to true or false. The purpose of which will be explained later on.
+                        </li>
+                        
+                    </ul>
+                    
+                    <h2 id="success">Stop_All_Vids()</h2> 
+                    <p>
+                        This function simply goes through all media object containers, and resets their inner container's HTML.
+                        This is just incase there are any videos with sound playing in the background.
+                    </p>
+                            
+                    <h2 id="success">Change_Text()</h2> 
+                    <p>
+                        I got annoyed at typing <code>document.getElementById("element ID").innerText = New text;</code> so
+                        often that I wrote this function to do that for me with less typing... Because I'm lazy.
+                    </p>
+                    
+
+                    <h2 id="success">show_header_visibility()</h2> 
+                    <p>
+                        This simple function just mkaes the header play an fade-in animation.<br>
+                        It's used in the aforementioned <b id="success">Switch_Page</b> function because it's supposed to play
+                        when entering the report page.
+                    </p>
+                    
+                    <h2 id="success">ShowHeader()</h2> 
+                    <p>
+                        This function is specifically for the home page. I wanted the header to only fade in once the user was past the video 
+                        background and we're not on the home page, which is determined by the <code>toggle_header</code> variable.
+                        <br>
+                        It works by first getting the height of the video. The moment we have scrolled past the video the header will play
+                        a fade-in animation.
+                    </p>
+                    
+                    <h2 id="success">Close_Contact() and Show_Contact()</h2> 
+                    <p>
+                        These 2 functions show and close the contact window. It's shown by first playing an fade in animation, and then setting the opacity of every other 
+                        section to <b>0.2</b>. 
+                        <br>
+                        Making these functions at 2am, I did not possess the brain power necesesary to realise that I could have shrunk both of these functions into one,
+                        and just make them take an argument to decide whether or not to show or close the contact form.
+                    </p>
+                    
+                    <h2 id="success">validate_form()</h2> 
+                    <p>
+                        As the name would suggest, this function goes through all of the values in the Contact form to make sure that all of the values are valid.
+                        <br>
+                        As what I thought to be a nice touch, It then retrives the Name entered and changes the Nightclub description title to <i>Dear <b><u>Name</u></b></i>
+                    </p>
+                    
+                    
+                    <h2 id="success">change_greeting()</h2> 
+                    <p>
+                        possibly the function I'm most proud of...
+                        <br>
+                        The function takes an arguement called <code>time</code>. A list of translations of the word <b>Welcome</b> is already populated and defined.
+                        And using <code>setInterval(Changer ,time)</code> every 2 seconds, or whatever the time is inputted as, fires off another function inside it.
+                        <br><br>
+                        This function is called <b><u><i>Changer()</i></u></b>. All it does is be given an index, and every time the function is called, it goes to the Welcome
+                        ID and changes the text to whatever is at the greetings at whatever Index it was given.
+                        <br>
+                        It's effectively a <b>while loop</b> as every time it reaches the end, the index resets to 0 and it keeps incrementing itself again.             
+                    </p>
+
+                </section>
+
+
+                <section id="LoFi">
+                    <h1>
+                        <hr>5. Lo-Fi Prototype<hr>
+                    </h1>
+                    <table>
+                        <tr>
+                            <th>Home Page<hr></th>      
+                            <th>Report Page<hr></th>    
+                            <th>Misc<hr></th>           
+                        </tr>
+                        <tr>
+                            <td>
+                                <img width="100%" src="Assets\Images\Home-Diagram.jpg">
+                            </td>
+                            <td>
+                                <img width="100%" src="Assets\Images\Report-Diagram.png">
+                            </td>
+                            <td>
+                                <img width="100%" src="Assets\Images\Misc.png">
+                                <br><br>
+                                <img width="100%" src="Assets\Images\Contact.png">
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <!--   #####    ADD MORE HERE    #####   -->
+
+
+                </section>
+
+
+                <section id="Dev_Plan">
+                    <h1>
+                        <hr>6. Dev Plan<hr>
+                    </h1>
+                    
+
+                    <h2>
+                        Describe the process of how the site will be created?
+                    </h2>
+
+                    <p>
+                        The website was made with the idea of just being one really long page, which, through interactions 
+                        with JS would show and hide different segments. I always had the idea of having the home "page" start with a video in the background.
+                        I spent many weeks trying to get a 3D background to work, using <a href="https://threejs.org/">Three.js</a> but as I had never used JS
+                        to this extent before, and didn't know anything about JSON, JQuery, node.js, and more... setting this up wasted much time.
+                        <br><br>
+                        Rather than just jumping into making all of the divs and JS, I first did a Lo-Fi layout in barebones HTML and CSS.
+                        Using basic shapes and paragraphs to illustrate what the general look was going to be like.
+                        This proved to be really effective, as once I was done the Lo-Fi version, all I had to do was expand on what was already there.
+                        This involved writing up the CSS and JS to a much higher degree. Implementing more and more features until I was happy with it.
+                        <br><br>
+                        Every single time I added something new to the webpage, I always made sure that the format was correct no matter the size of the window.
+                        This is the reason for the <code>@media only screen and (max-width: 950px)</code> in the CSS file.
+                    </p>
+
+                        
+                    <h2>
+                        How the CSS rules were created to work on the pages?
+                    </h2>
+
+                    <p>
+                        As mentioned previously, there is one CSS file, meaning that multiple pages could share similar aspects in terms of style and colour.
+                        This also means that they can all use the same animations if required.
+                        <br><br>
+                        Any adjustments that need to be made to accomadate smaller screen sizes can be found in the <code>@media only screen and (max-width: 950px)</code>
+                        tag in CSS. The window in the different sizes can be found below. I chose the home page, specifically where the map can be found because I believe that's where
+                        there's the biggest amount of content that had to be styled correctly.
+                    </p>
+                    <table id="screen_sizes">
+                        <tr>
+                            <td>
+                                <img width="80%" src="Assets/Images/1080p.png">
+                            </td>
+                            <td>Fullscreen, 1080p</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img width="80%" src="Assets/Images/Tablet.png">
+                            </td>
+                            <td>Tablet-like size</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img width="80%" src="Assets/Images/Mobile1.png">
+                            </td>
+                            <td>Mobile-like size (1)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img width="80%" src="Assets/Images/Mobile2.png">
+                            </td>
+                            <td>Mobile-like size (2)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img width="80%" src="Assets/Images/Squeezed_In.png">
+                            </td>
+                            <td>As small as I can make the window</td>
+                        </tr>
+                    </table>
+                </section>
+
+
+                <section id="Test_Plan">
+                    <h1>
+                        <hr>7. Testing Plan<hr>
+                    </h1>
+                
+                    <h2>
+                        The strategies used to test the website
+                    </h2>
+
+                    <p>
+                        As mentioned before, when changing any aspects, even if they were minor, I always resized the window and
+                        tested them even in the smallest sizes. When using CSS, I always tried out different shapes and sizes for 
+                        certain elements. For example:
+                        <br>
+                        When designing the buttons to change pages, I tried experimenting with the different recommendations that came after I finished
+                        typing <code>display:</code>. This led me to try out <b>inline-block, block, flexbox</b> and learn how they all fitted on the page.
+                        <br>
+                        I also <b>rarely</b> ever used <code>px</code> to define sizes, as I always wanted all elements to dynamically scale properly.
+                        This is why I made extensive use of the <code>vh, vw, %, em</code> size-specifications.
+                        <br><br>
+                        Examples of all the different elements being dynamically scalled can be found <a href="screen_sizes">here!</a>
+                    </p>
+                </section>
+
+
+                <section id="Site_Eval">
+                    <h1>
+                        <hr>8. Evaluation<hr>
+                    </h1>
+                    
+                    <p>
+                        Being brutally honest, I ran out of time when making this website. I do firmly believe that I did follow <b>Nielsens 10 Usability Heuristics</b>
+                        quite well, but if I had more time and read the project specification properly in the first place, I would have set up a page which would've acted
+                        as a usability/ease-of-use Questionnaire, and a page for submitting your own nightclubs.
+
+                        I believe my site has succeeded well on the following:
+                    </p>
+                    <ol>
+                        <li>
+                            <b><i>Visibility of system status</i></b>
+                            <br><br>
+                            I do believe that the user, whomever he may be, would have no difficulty in finding out what is going on in the site at any given time.
+                            <br><br>
+                        </li>
+                        
+                        <li>
+                            <b><i>Match between system and the real world</i></b>
+                            <br><br>
+                            The language I used was simple. The only jargin to be found would be on this report page, as it's designed for Website designers who would know what the various terms are.
+                            <br><br>
+                        </li>
+
+                        <li>
+                            <b><i>User control and freedom</i></b>
+                            <br><br>
+                            The User does have much control I believe. I did want to have a dedicated button to go back to the home screen but due to time constraints, that 
+                            is only available through reloading the page or pressing the <b><i>EUROPEAN NIGHT SCENE</i></b> link in the header, which won't be there if the screen is too narrow.
+                            If I had more time I would fix this issue.
+                            <br><br>
+                        </li>
+                        
+                        <li>
+                            <b><i>Consistency and standards</i></b>
+                            <br><br>
+                            While using the website I do believe there to be a good degree of consistency, especially with other sites on the web, but after looking at my code and alot of its structure,
+                            I would make the statement that the consistency doesn't apply to there aswell...
+                            <br><br>
+                        </li>
+                        
+                        <li>
+                            <b><i>Error prevention</i></b>
+                            <br><br>
+                            I could not find an error with my website besides the one already mentioned, so I would say that the site is quite Error-free...
+                            <br><br>
+                        </li>
+                        
+                        <li>
+                            <b><i>Recognition rather than recall, and Flexibility and efficiency of use</i></b>
+                            <br><br>
+                            As mentioned previously, I would very much like to insert a questionnaire page so I could gain 
+                            unbiassed views into the sites usuability and ease of use.
+                            <br><br>
+                        </li>
+                        
+                        <li>
+                            <b><i>Aesthetic and minimalist design</i></b>
+                            <br><br>
+                            In my opinion, I do believe I achieved this. Part of the concrete edgy/cyberpunk aesthetic I was trying to go for
+                            IS minimalism so I believe this was addressed right from the sites initial conception.
+                            <br><br>
+                        </li>
+                        
+                        <li>
+                            <b><i>Help users recover from errors</i></b>
+                            <br><br>
+                            I believe the <b>X</b> exit button on the contact form acted as a good example of this? 
+                            <br>
+                            As mentioned previously, the site would benifit from a questionnaire page so that I may better understand the work that must be done and the problems that exist.
+                            <br><br>
+                        </li>
+                    </ol>
+
+                </section>
+
+
+                <section id="Logs">
+                    <h1>
+                        <hr>9. Weekly Logs<hr>
+                    </h1>
+                    
+                    <table>
+                        <tr>
+                            <td>
+                                <iframe id="iframe_log" src="Assets\Logs\week1.pdf"></iframe>
+                            </td>
+                            <td>Week 1</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <iframe id="iframe_log" src="Assets\Logs\week3.pdf"></iframe>
+                            </td>
+                            <td>Week 3</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <iframe id="iframe_log" src="Assets\Logs\week4.pdf"></iframe>
+                            </td>
+                            <td>Week 4</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <iframe id="iframe_log" src="Assets\Logs\week5.pdf"></iframe>
+                            </td>
+                            <td>Week 5</td>
+                        </tr>
+                    </table>
+
+
+                </section>
+
+
+            </div>
+
+            
+        </div>
+
+
+        
+
+
+        <footer>
+            <div id="footer_text_box">
+                <h2>SOCIALS</h2>
+                <hr>
+                
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/just.cesar.man/">
+                            Instagram<br>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto: potatoeareawesome@gmail.com"">
+                            Email<br>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto: c21415142@mytudublin.ie"">
+                            TUD Email<br>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.reddit.com/user/i_dont_like_pears">
+                            Reddit<br>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://discordapp.com/users/395656421779308545">
+                            Discord<br>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://api.whatsapp.com/send?phone=0873628199">
+                            WhatsApp<br>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <div id="footer_text_box">
+                <h2>REPORT</h2>
+                <hr>
+                <ol>
+                    <li><a href="#Prob_desc " onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Problem Description </a></li>
+                    <li><a href="#Research "  onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Research </a></li>
+                    <li><a href="#Tech "      onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Tech-Architecture </a></li>
+                    <li><a href="#JS "        onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Javascript </a></li>
+                    <li><a href="#LoFi "      onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Lo-Fi Prototype </a></li>
+                    <li><a href="#Dev_Plan "  onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Dev Plan </a></li>
+                    <li><a href="#Test_Plan " onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Testing Plan </a></li>
+                    <li><a href="#Site_Eval " onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Site Evaluation </a></li>
+                    <li><a href="#Logs "      onclick=" Switch_Page('EUROPEAN_NIGHT_SCENE_PARENT_DIV', 'REPORT_PARENT_DIV', false)" > Weekly Logs </a></li>
+                </ol>
+            </div>
+            <!--<div id="footer_text_box">
+                <h2>CONTACT</h2>
+                <hr>
+
+                
+            </div>-->
+            <hr style="width: 80%;"> 
+            <p id="Copyright_mini_text">
+                César Hannin <i>© - C21415142</i>
+            </p>
+        </footer>
+
+
+      
+    </body>
+    <!--============ END OF BODY ========-->
+</html>
