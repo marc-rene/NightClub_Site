@@ -310,7 +310,9 @@ code
     overflow: hidden;
     /*margin-top: 100vh;*/
     width: 100%;
-    
+    font-weight: 200;
+    color: lightgray;
+   
     background-image: url('../Images/Home-bg.jpg');
     object-fit: cover;
     background-size: cover;
