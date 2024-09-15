@@ -1,4 +1,4 @@
-/*
+
 function Resize_With_Video()    // Get the height of the video and offset the text segment, the 'display: absolute' with the video caused alot of hassle 
 {                               // and this function actually really helps with that! 
     var video_height =  document.getElementById('Home_Video').offsetHeight;
@@ -7,7 +7,7 @@ function Resize_With_Video()    // Get the height of the video and offset the te
     document.getElementById('Text_segment').style.marginTop = (video_height.toString(10) + "px");
     console.log(video_height.toString(10) + "px");
 }
-*/
+
 
 
 var toggle_header = true;
